@@ -140,8 +140,8 @@ module Admin
 
     def typus_belongs_to_field(attribute, form)
       association = @resource.reflect_on_association(attribute.to_sym)
-      related = if defined?(set_belongs_to_context)
-                  set_belongs_to_context.send(attribute.pluralize.to_sym)
+      related = if defined?(set_belongs_to_scope)
+                  set_belongs_to_scope.send(attribute.pluralize.to_sym)
                 else
                   association.class_name.typus_constantize
                 end
