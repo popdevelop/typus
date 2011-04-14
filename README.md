@@ -1,3 +1,5 @@
+Support for carrierwave, remove does not work for the moment
+
 # Typus: Admin Panel for Ruby on Rails applications
 
 **Typus** is designed for a single activity:

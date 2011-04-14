@@ -60,8 +60,9 @@ module Typus
 
               dragonfly = respond_to?(:dragonfly_apps_for_attributes) && dragonfly_apps_for_attributes.try(:has_key?, field)
               paperclip = respond_to?(:attachment_definitions) && attachment_definitions.try(:has_key?, field)
+              carrierwave = respond_to?(:uploaders) && uploaders.try(:has_key?, field)
 
-              if dragonfly || paperclip
+              if dragonfly || paperclip || carrierwave
                 fields_with_type[field.to_s] = :file
                 next
               end
