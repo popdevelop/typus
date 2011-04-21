@@ -45,7 +45,7 @@ module Admin
       if !attachment.url.nil?
         render "admin/helpers/file_preview",
                :preview => attachment.url,
-               :thumb => attachment.url,
+               :thumb => attachment.url + "?w=80&h=80",
                :options => options
       else
         "no image"
