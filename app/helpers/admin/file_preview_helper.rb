@@ -43,9 +43,13 @@ module Admin
 
     def typus_file_preview_for_carrierwave(attachment, options = {})
       if !attachment.url.nil?
+        thumb = nil
+        if !attachment.thumb.nil?
+          thumb = attachment.thumb.url
+        end
         render "admin/helpers/file_preview",
                :preview => attachment.url,
-               :thumb => "/thumb" + attachment.url + "?w=80&h=80",
+               :thumb => thumb,
                :options => options
       else
         "no image"
