@@ -23,7 +23,6 @@ module Admin
               end
 
       if !validators.include?(field) && attachment
-        p attribute
         attribute_i18n = @item.class.human_attribute_name(attribute)
         message = Typus::I18n.t("Remove")
         label_text = <<-HTML
@@ -43,9 +42,10 @@ module Admin
 
     def typus_file_preview_for_carrierwave(attachment, options = {})
       if !attachment.url.nil?
-        thumb = attachment.url
-        if !attachment.thumb.nil? && !attachment.thumb.url.nil?
+        begin
           thumb = attachment.thumb.url
+        rescue
+          thumb = attachment.url
         end
         render "admin/helpers/file_preview",
                :preview => attachment.url,
