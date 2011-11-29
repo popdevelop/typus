@@ -11,7 +11,7 @@ require "typus/orm/active_record"
 require "typus/regex"
 require "typus/version"
 
-require "render_inheritable"
+#require "render_inheritable"
 require "will_paginate"
 
 autoload :FakeUser, "support/fake_user"

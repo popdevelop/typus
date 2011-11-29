@@ -1,6 +1,6 @@
 class Admin::BaseController < ActionController::Base
 
-  render_inheritable
+#  render_inheritable
 
   include Typus::Authentication::const_get(Typus.authentication.to_s.classify)
 
